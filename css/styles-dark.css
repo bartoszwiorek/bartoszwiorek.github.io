@@ -1,0 +1,49 @@
+html {
+  background: #181818;
+  color: #444;
+}
+
+h1 {
+  color: #555;
+}
+
+.json__chunk > dt {
+  color: #af435a;
+}
+
+.json__chunk > dd,
+.json__chunk > dd > a {
+  color: #5ea748;
+}
+
+.json__chunk > dd:hover,
+.json__chunk > dd:hover > a {
+  color: #6cd34d;
+}
+
+.json__chunk > dd.json--object:before,
+.json__chunk > dd.json--object:after,
+.json__chunk > dd.json--array:before,
+.json__chunk > dd.json--array:after {
+  color: #ccc;
+}
+
+.color--accent,
+.color--accent * {
+  color: #dd9c3a !important;
+}
+
+.bg--em {
+  background: rgb(15, 15, 15);
+}
+
+#cookies-info button {
+  color: #fff;
+}
+
+#cookies-info button:active,
+#cookies-info button:focus,
+#cookies-info button:hover {
+  background: #fff;
+  color: #000;
+}

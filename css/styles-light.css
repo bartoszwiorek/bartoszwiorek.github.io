@@ -1,0 +1,58 @@
+html {
+  background: #f8f8f8;
+  color: #444;
+}
+
+h1 {
+  color: #777;
+}
+
+.json__chunk > dt {
+  color: #be435d;
+}
+
+.json__chunk > dd,
+.json__chunk > dd > a {
+  color: #44992a;
+}
+
+.json__chunk > dd:hover,
+.json__chunk > dd:hover > a {
+  color: rgb(48, 105, 31);
+}
+
+.json__chunk > dd.json--object:before {
+  color: #444;
+}
+
+.json__chunk > dd.json--object:after {
+  color: #444;
+}
+
+.json__chunk > dd.json--array:before {
+  color: #444;
+}
+
+.json__chunk > dd.json--array:after {
+  color: #444;
+}
+
+.color--accent,
+.color--accent * {
+  color: #3d3add !important;
+}
+
+.bg--em {
+  background: #eee;
+}
+
+#cookies-info button {
+  color: #000;
+}
+
+#cookies-info button:active,
+#cookies-info button:focus,
+#cookies-info button:hover {
+  background: #000;
+  color: #fff;
+}

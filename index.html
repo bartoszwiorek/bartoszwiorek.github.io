@@ -1,11 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bartosz Wiorek</title>
-</head>
-<body>
-  in development
-</body>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-115025317-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-115025317-2");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="keywords"
+      content="reactjs, redux, frontend, front-end, javascript, js, bootstrap, html, css, borek, wiorek, wiórek"
+    />
+    <meta name="author" content="bartoszwiorek@gmail.com" />
+    <meta name="description" content="Bartosz Wiorek - Front-end Engineer" />
+
+    <title>Bartosz Wiorek</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+
+    <link
+      id="styles"
+      rel="stylesheet"
+      type="text/css"
+      href="./css/styles-light.css"
+    />
+
+    <script>
+      function handleStyles() {
+        var linkDomElem = document.getElementById("styles");
+
+        if (!linkDomElem) {
+          return;
+        }
+
+        const hours = new Date().getHours();
+        const hourOfChange = 18;
+
+        if (hours > hourOfChange) {
+          linkDomElem.setAttribute("href", "./css/styles-dark.css");
+        }
+      }
+
+      handleStyles();
+    </script>
+  </head>
+
+  <body>
+    <h1 role="banner">Bartosz Wiorek - Front-end developer</h1>
+
+    <section class="json__root hidden bg--em" id="cookies-info">
+      <section class="json__section" aria-label="Cookies info section">
+        <dl class="json__chunk">
+          <dt aria-label="Cookies policy" role="heading">Cookies_policy</dt>
+          <dd class="json--description color--accent">
+            This site uses
+            <a
+              aria-label="Cookies wiki link"
+              href="https://en.wikipedia.org/wiki/HTTP_cookie"
+              >cookies</a
+            >.
+          </dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>button</dt>
+          <dd>
+            <button
+              id="cookie-close-btn"
+              aria-label="Close cookies info button"
+              type="button"
+            >
+              [ Close X ]
+            </button>
+          </dd>
+        </dl>
+      </section>
+    </section>
+
+    <section class="json__root">
+      <section
+        class="json__section"
+        aria-label="Personal information section"
+        role="heading"
+      >
+        <dl class="json__chunk">
+          <dt>Name</dt>
+          <dd>Bartosz Wiorek</dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>Profession</dt>
+          <dd>Front-end Engineer</dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>City</dt>
+          <dd>Poznań</dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>Contact</dt>
+          <dd class="json__section json--object">
+            <dl class="json__chunk">
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:bartoszwiorek@gmail.com"
+                  >bartoszwiorek@gmail.com</a
+                >
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>Education</dt>
+          <dd>AMU Engineer deegree in Computer Science</dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>Social</dt>
+          <dd class="json__section json--object">
+            <dl class="json__chunk">
+              <dt>LinkedIn</dt>
+              <dd>
+                <a
+                  title="LinkedIn link"
+                  href="https://www.linkedin.com/in/bartoszwiorek"
+                  >https://www.linkedin.com/in/bartoszwiorek</a
+                >
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>Skills</dt>
+          <dd class="json__section json--array">
+            <dl class="json__chunk">
+              <dd>JavaScript</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>TypeScript</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>React</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>SASS</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>CSS</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>HTML</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>Webpack</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>Bootstrap</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>Redux</dd>
+            </dl>
+            <dl class="json__chunk">
+              <dd>...</dd>
+            </dl>
+          </dd>
+        </dl>
+        <dl class="json__chunk">
+          <dt>About</dt>
+          <dd>
+            <h2 class="json--description">
+              I am a Front-end Engineer skilled in both 2D design and
+              programming. Continuously exploring new technologies is a
+              priority, as I believe it's crucial to stay current in the
+              ever-evolving IT landscape. I am based in Poznań, Greater Poland,
+              and hold an Engineering degree from Adam Mickiewicz University.
+            </h2>
+          </dd>
+        </dl>
+      </section>
+    </section>
+
+    <script src="./js/cookies.js"></script>
+
+    <script>
+      function handleCookies() {
+        var cookiesInfo = document.getElementById("cookies-info"),
+          cookieCloseBtn = document.getElementById("cookie-close-btn"),
+          cookieName = "cookies-confirmed",
+          cookie;
+
+        cookie = getCookie(cookieName);
+
+        if (!cookie) {
+          cookiesInfo.classList.remove("hidden");
+          cookieCloseBtn.addEventListener("click", onCloseBtnClick);
+        }
+
+        function onCloseBtnClick() {
+          setCookie(cookieName, true, 365);
+          cookieCloseBtn.removeEventListener("click", onCloseBtnClick);
+          cookiesInfo.classList.add("hidden");
+        }
+      }
+
+      handleCookies();
+    </script>
+  </body>
 </html>

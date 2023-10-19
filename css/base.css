@@ -1,0 +1,133 @@
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  padding: 2em;
+}
+
+body > h1 {
+  margin: 0 0 1em 0;
+}
+
+.json__root {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.json__root:before {
+  content: "{";
+}
+
+.json__root:after {
+  content: "}";
+}
+
+.json__section > * {
+  margin-left: 2.5em;
+}
+
+@media (max-width: 768px) {
+  .json__section > * {
+    margin-left: 1.5em;
+  }
+}
+
+.json__chunk {
+  margin-top: 0;
+  margin-bottom: 0.45em;
+  word-break: break-word;
+}
+
+.json__chunk > dt,
+.json__chunk > dd {
+  display: inline;
+}
+
+.json__chunk > dt {
+  text-transform: lowercase;
+  font-weight: 600;
+}
+
+.json__chunk > dd {
+  margin-inline-start: 0;
+}
+
+.json__chunk > dd > a {
+  text-decoration: underline;
+}
+
+.json__chunk > dt:before {
+  content: '"';
+}
+
+.json__section:not(.json--array) > .json__chunk > dt:after {
+  content: '":';
+}
+
+.json__section.json--array > .json__chunk > dt:not(:last-of-type):after {
+  content: '",';
+}
+
+.json__section.json--array > .json__chunk > dt:last-of-type:after {
+  content: '"';
+}
+
+.json__chunk > dd:not(.json--object):not(.json--array):before,
+.json__chunk > dd:not(.json--object):not(.json--array):after {
+  content: '"';
+}
+
+.json__chunk:not(:last-of-type):after {
+  content: ",";
+  position: absolute;
+}
+
+.json__chunk > dd.json--object:before {
+  content: "{";
+}
+
+.json__chunk > dd.json--object:after {
+  content: "}";
+}
+
+.json__chunk > dd.json--array:before {
+  content: "[";
+}
+
+.json__chunk > dd.json--array:after {
+  content: "]";
+}
+
+.json__chunk > dt,
+.json__chunk > dd,
+.json__chunk h2.json--description {
+  font-size: 1.1em;
+}
+
+.json__chunk h2.json--description {
+  font-weight: normal;
+  margin: 0;
+  max-width: 800px;
+  display: block;
+  margin-left: 2em;
+  text-align: justify;
+}
+
+.bg--em {
+  padding: 1.5em;
+  display: inline-block;
+}
+
+#cookies-info button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
