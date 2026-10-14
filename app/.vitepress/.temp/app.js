@@ -3,7 +3,7 @@ import { toRef as toRef$1, readonly, customRef, ref, onMounted, nextTick, getCur
 function deserializeFunctions(r) {
   return Array.isArray(r) ? r.map(deserializeFunctions) : typeof r == "object" && r !== null ? Object.keys(r).reduce((t, n) => (t[n] = deserializeFunctions(r[n]), t), {}) : typeof r == "string" && r.startsWith("_vp-fn_") ? new Function(`return ${r.slice(7)}`)() : r;
 }
-const siteData = deserializeFunctions(JSON.parse('{"lang":"en-US","dir":"ltr","title":"wiorek.net","description":"Bartosz Wiorek, full-stack web developer in Poznań, Poland. React, Next.js, TypeScript and Node.js - interfaces, APIs, content platforms and AI integrations.","base":"/","head":[],"router":{"prefetchLinks":true},"appearance":"dark","themeConfig":{},"locales":{},"scrollOffset":134,"cleanUrls":true}'));
+const siteData = deserializeFunctions(JSON.parse('{"lang":"en-US","dir":"ltr","title":"wiorek.net","description":"Full-stack web developer with 10+ years of experience. React, Next.js, TypeScript and Node.js. Based in Poznań, Poland.","base":"/","head":[],"router":{"prefetchLinks":true},"appearance":"dark","themeConfig":{},"locales":{},"scrollOffset":134,"cleanUrls":true}'));
 function tryOnScopeDispose(fn) {
   if (getCurrentScope()) {
     onScopeDispose(fn);
