@@ -2,12 +2,12 @@ type RuntimeConfig = { cookiebotId: string; ackeeServer: string; ackeeDomainId: 
 type Tracker = { record: (id: string, attributes: { siteLocation: string }) => { stop: () => void } }
 declare global {
   interface Window {
-    Cookiebot?: { consent: { statistics: boolean }; renew: () => void }
+    Cookiebot?: { consent?: { statistics?: boolean }; renew?: () => void }
     ackeeTracker?: { create: (server: string, options: Record<string, boolean>) => Tracker }
   }
 }
 
-export function openCookieSettings() { window.Cookiebot?.renew() }
+export function openCookieSettings() { window.Cookiebot?.renew?.() }
 
 export async function setupPrivacy(): Promise<{ enabled: boolean; cleanup?: () => void; trackPage?: () => void }> {
   let config: RuntimeConfig
@@ -31,7 +31,7 @@ export async function setupPrivacy(): Promise<{ enabled: boolean; cleanup?: () =
   let tracker: Tracker | undefined
   let loading = false
   let disposed = false
-  const allowed = () => !disposed && Boolean(window.Cookiebot?.consent.statistics)
+  const allowed = () => !disposed && window.Cookiebot?.consent?.statistics === true
   function sync() {
     if (!allowed()) { stop?.(); stop = undefined; return }
     if (stop || !config.ackeeServer || !config.ackeeDomainId) return

@@ -974,8 +974,8 @@ async function setupPrivacy() {
   let loading = false;
   let disposed = false;
   const allowed = () => {
-    var _a;
-    return !disposed && Boolean((_a = window.Cookiebot) == null ? void 0 : _a.consent.statistics);
+    var _a, _b;
+    return !disposed && ((_b = (_a = window.Cookiebot) == null ? void 0 : _a.consent) == null ? void 0 : _b.statistics) === true;
   };
   function sync() {
     if (!allowed()) {

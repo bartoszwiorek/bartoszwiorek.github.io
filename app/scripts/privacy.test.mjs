@@ -69,6 +69,25 @@ test('withdrawal while tracker is loading prevents a record', async () => {
   f.scripts[1].onload()
   assert.equal(f.records.length, 0)
 })
+test('partially initialized Cookiebot waits for consent without throwing', async () => {
+  const f = fixture({ cookiebotId: id, ackeeServer: 'https://analytics.example.com', ackeeDomainId: id })
+  f.window.Cookiebot = {}
+  const privacy = await f.setupPrivacy()
+  assert.doesNotThrow(() => f.openCookieSettings())
+  assert.doesNotThrow(() => f.scripts[0].onload())
+  assert.doesNotThrow(() => f.events.get('CookiebotOnConsentReady')())
+  assert.equal(f.scripts.length, 1)
+  assert.equal(f.records.length, 0)
+  f.window.Cookiebot.consent = { statistics: true }
+  f.events.get('CookiebotOnConsentReady')()
+  assert.equal(f.scripts.length, 2)
+  f.scripts[1].onload()
+  assert.equal(f.records.length, 1)
+  delete f.window.Cookiebot.consent
+  assert.doesNotThrow(() => f.events.get('CookiebotOnDecline')())
+  assert.equal(f.records[0].stopped, true)
+  privacy.cleanup()
+})
 test('runtime configuration normalizes HTTPS URLs and rejects invalid values', () => {
   assert.equal(runtimeConfig({ ACKEE_SERVER: 'https://analytics.example.com/' }).ackeeServer, 'https://analytics.example.com')
   assert.throws(() => runtimeConfig({ COOKIEBOT_ID: 'invalid' }))
