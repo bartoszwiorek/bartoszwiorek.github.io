@@ -1,5 +1,6 @@
 ---
 title: Privacy
+description: How wiorek.net handles consent, optional Ackee analytics and external services, and how to contact Bartosz Wiorek about privacy.
 ---
 
 # Privacy, simply put.

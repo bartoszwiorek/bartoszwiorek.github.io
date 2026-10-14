@@ -12,6 +12,8 @@ body { margin: 0; }
 a, button { transition: color .15s, background .15s; }
 a:hover, button:hover { color: var(--color-lime); }
 button { cursor: pointer; }
+header nav a, footer a, footer button { display: inline-flex; align-items: center; min-height: 44px; }
+header nav a { padding-inline: 4px; }
 :focus-visible { outline: 2px solid var(--color-lime); outline-offset: 6px; }
 .eyebrow { font-size: 11px; letter-spacing: .14em; font-weight: 500; color: var(--color-muted); }
 .section-number { margin-right: 14px; color: var(--color-lime); }

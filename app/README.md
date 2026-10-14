@@ -1,6 +1,10 @@
-# Bartosz Wiorek — portfolio
+# Bartosz Wiorek - portfolio
 
 An English-language personal site built with VitePress, Vue and Tailwind CSS. A custom, responsive dark theme uses the personal information from the original website. No employment history or project claims have been invented.
+
+The profile is positioned as Full-stack Web Developer, with a React/Next.js, TypeScript and Node.js stack. Canonical URLs, social metadata, structured data, sitemap and robots.txt assume the production domain is `https://wiorek.net`. Update `.vitepress/config.ts` and `public/robots.txt` together if that domain changes.
+
+Accessibility includes semantic landmarks and headings, a keyboard skip link with a focusable main target, visible focus indicators, descriptive links, larger navigation targets, dark-theme contrast and reduced-motion support. This is not a WCAG compliance certification; check the deployed Cookiebot banner and keyboard/screen-reader flows as part of a full audit.
 
 ## Local development
 

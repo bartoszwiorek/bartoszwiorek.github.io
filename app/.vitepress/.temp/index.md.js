@@ -1,7 +1,7 @@
 import { ssrRenderAttrs } from "vue/server-renderer";
 import { useSSRContext } from "vue";
 import { _ as _export_sfc } from "./plugin-vue_export-helper.1tPrXgE0.js";
-const __pageData = JSON.parse('{"title":"Front-end Engineer","description":"Bartosz Wiorek — front-end engineering and visual design, based in Poznań, Poland.","frontmatter":{"title":"Front-end Engineer","description":"Bartosz Wiorek — front-end engineering and visual design, based in Poznań, Poland."},"headers":[],"relativePath":"index.md","filePath":"index.md"}');
+const __pageData = JSON.parse('{"title":"Bartosz Wiorek - Full-stack Web Developer","titleTemplate":"wiorek.net","description":"Bartosz Wiorek, full-stack web developer in Poznań, Poland. React, Next.js, TypeScript and Node.js - interfaces, APIs, content platforms and AI integrations.","frontmatter":{"title":"Bartosz Wiorek - Full-stack Web Developer","titleTemplate":"wiorek.net","description":"Bartosz Wiorek, full-stack web developer in Poznań, Poland. React, Next.js, TypeScript and Node.js - interfaces, APIs, content platforms and AI integrations."},"headers":[],"relativePath":"index.md","filePath":"index.md"}');
 const _sfc_main = { name: "index.md" };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(_attrs)}></div>`);
