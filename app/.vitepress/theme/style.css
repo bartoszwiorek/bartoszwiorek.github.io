@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@theme {
+  --color-lime: #c1ed83;
+  --color-muted: #a3aaa3;
+  --color-foreground: #edf0e9;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+:root { color-scheme: dark; background: #101211; color: var(--color-foreground); font-family: var(--font-sans); }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0; }
+::selection { background: #c1ed83; color: #101211; }
+a, button { transition: color .15s, background .15s; }
+a:hover, button:hover { color: var(--color-lime); }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--color-lime); outline-offset: 6px; }
+.eyebrow { font-size: 11px; letter-spacing: .14em; font-weight: 500; color: var(--color-muted); }
+.section-number { margin-right: 14px; color: var(--color-lime); }
+.section-title { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.16; letter-spacing: -.04em; font-weight: 500; }
+.body-copy { max-width: 39rem; font-size: 16px; line-height: 1.85; color: var(--color-muted); }
+.section-grid { display: grid; gap: 2rem; border-top: 1px solid #ffffff1a; padding: 4rem 0; }
+.profile-panel { background: #191d19; border: 1px solid #ffffff14; border-radius: 12px; padding: 28px; }
+.primary-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 3rem; background: var(--color-lime); color: #101211; padding: 14px 22px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+.primary-link:hover { background: #d2f5a3; color: #101211; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 100; padding: 12px; background: var(--color-lime); color: #101211; }
+.skip-link:focus { top: 1rem; }
+.prose-page h1 { font-size: 2.7rem; letter-spacing: -.04em; margin-bottom: 2rem; }
+.prose-page h2 { font-size: 1.4rem; margin: 2rem 0 1rem; }
+.prose-page p { color: var(--color-muted); line-height: 1.8; margin: 1rem 0; }
+.prose-page a { color: var(--color-lime); text-decoration: underline; }
+@media (min-width: 768px) { .section-grid { grid-template-columns: 1fr 2fr; padding: 5rem 0; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } a, button { transition: none; } }
