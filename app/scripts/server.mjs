@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url'
 import { runtimeConfig } from './config.mjs'
 
 const root = fileURLToPath(new URL('../.vitepress/dist/', import.meta.url))
-const config = JSON.stringify(runtimeConfig())
+const settings = runtimeConfig()
+const config = JSON.stringify(settings)
+console.log(`Cookiebot: ${settings.cookiebotId ? 'configured' : 'disabled (COOKIEBOT_ID is empty)'}`)
 const port = Number(process.env.PORT || 3000)
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.ico': 'image/x-icon' }
 

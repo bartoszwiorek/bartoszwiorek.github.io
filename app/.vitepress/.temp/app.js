@@ -956,12 +956,19 @@ async function setupPrivacy() {
   let config;
   try {
     const response = await fetch("/runtime-config.json", { cache: "no-store" });
-    if (!response.ok) return { enabled: false };
+    if (!response.ok) {
+      console.error("[Privacy] Runtime configuration could not be loaded:", response.status);
+      return { enabled: false };
+    }
     config = await response.json();
-  } catch {
+  } catch (error) {
+    console.error("[Privacy] Runtime configuration could not be loaded. Serve the app using scripts/server.mjs or pnpm dev.", error);
     return { enabled: false };
   }
-  if (!config.cookiebotId) return { enabled: false };
+  if (!config.cookiebotId) {
+    console.warn("[Privacy] Cookiebot is disabled: COOKIEBOT_ID is missing from the running server environment.");
+    return { enabled: false };
+  }
   let stop;
   let tracker;
   let loading = false;
@@ -1006,7 +1013,9 @@ async function setupPrivacy() {
   script.src = "https://consent.cookiebot.com/uc.js";
   script.dataset.cbid = config.cookiebotId;
   script.dataset.culture = "EN";
-  script.dataset.blockingmode = "manual";
+  script.dataset.blockingmode = "none";
+  script.onload = sync;
+  script.onerror = () => console.error("[Privacy] Cookiebot script could not be loaded. Check network errors, content security policy and browser extensions.");
   script.async = true;
   document.head.append(script);
   sync();

@@ -48,4 +48,12 @@ docker run --rm -p 3000:3000 --env-file .env bw-portfolio
 
 Check both consent acceptance and withdrawal on your registered domain before publishing. Set retention in your Ackee instance and review the privacy page for your actual hosting and service setup.
 
+### Cookiebot troubleshooting on Railway
+
+- Redeploy after setting `COOKIEBOT_ID`. The startup log must say `Cookiebot: configured`.
+- Open `/runtime-config.json` on the deployed domain. It must return JSON with a nonempty `cookiebotId`. A missing endpoint or HTML response indicates the app is being served without `scripts/server.mjs`; remove any Railway start-command override that uses a static preview server.
+- Check the browser console for `[Privacy]` messages and the Network tab for `consent.cookiebot.com/uc.js`.
+- Register the exact hostname you visit in Cookiebot (including a Railway preview hostname if you use it), publish your banner configuration and check any geographic display rules.
+- An existing consent choice can suppress the banner. Use **Cookie settings** in the footer or test in a clean private browser session without blocking extensions.
+
 References: [VitePress custom themes](https://vitepress.dev/guide/custom-theme), [Tailwind Vite integration](https://tailwindcss.com/docs/installation/using-vite), [Cookiebot API](https://www.cookiebot.com/en/developer/), [Ackee tracker API](https://github.com/electerious/ackee-tracker).

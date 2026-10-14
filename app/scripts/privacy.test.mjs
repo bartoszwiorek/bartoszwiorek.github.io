@@ -19,14 +19,26 @@ function fixture(config) {
       return { stop: () => { record.stopped = true } }
     } }) },
   }
-  const context = { exports: {}, window, fetch: async () => ({ ok: true, json: async () => config }), location: { origin: 'https://portfolio.example.com', pathname: '/' }, document: { createElement: () => ({ dataset: {}, remove() {} }), head: { append: script => scripts.push(script) } } }
+  const messages = []
+  const context = { exports: {}, console: { error: (...args) => messages.push(args), warn: (...args) => messages.push(args) }, window, fetch: async () => ({ ok: true, json: async () => config }), location: { origin: 'https://portfolio.example.com', pathname: '/' }, document: { createElement: () => ({ dataset: {}, remove() {} }), head: { append: script => scripts.push(script) } } }
   vm.runInNewContext(source, context)
-  return { ...context.exports, window, scripts, events, records }
+  return { ...context.exports, window, scripts, events, records, messages }
 }
 test('missing Cookiebot configuration disables analytics', async () => {
   const f = fixture({ cookiebotId: '', ackeeServer: 'https://analytics.example.com', ackeeDomainId: id })
   assert.equal((await f.setupPrivacy()).enabled, false)
   assert.equal(f.scripts.length, 0)
+  assert.match(f.messages[0][0], /COOKIEBOT_ID/)
+})
+test('configured Cookiebot loads without Ackee configuration and reports script failures', async () => {
+  const f = fixture({ cookiebotId: id, ackeeServer: '', ackeeDomainId: '' })
+  assert.equal((await f.setupPrivacy()).enabled, true)
+  assert.equal(f.scripts[0].src, 'https://consent.cookiebot.com/uc.js')
+  assert.equal(f.scripts[0].dataset.cbid, id)
+  assert.equal(f.scripts[0].dataset.blockingmode, 'none')
+  f.scripts[0].onerror()
+  assert.match(f.messages[0][0], /Cookiebot script could not be loaded/)
+  assert.equal(f.records.length, 0)
 })
 test('consent gates loading, avoids duplicate records, and withdrawal stops tracking', async () => {
   const f = fixture({ cookiebotId: id, ackeeServer: 'https://analytics.example.com', ackeeDomainId: id })
