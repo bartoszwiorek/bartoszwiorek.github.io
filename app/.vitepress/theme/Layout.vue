@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { setupPrivacy, openCookieSettings } from './privacy'
+import Icon from './Icon.vue'
 
 const { page } = useData()
 const route = useRoute()
@@ -33,7 +34,7 @@ const expertise = [
     <header class="flex flex-wrap items-center justify-between gap-x-5 gap-y-2 border-b border-white/10 py-7">
       <a href="/" aria-label="wiorek.net - home" class="shrink-0 text-lg font-semibold tracking-tight">wiorek<span class="text-lime">.</span>net</a>
       <nav aria-label="Main navigation" class="flex flex-wrap gap-2 text-sm text-muted sm:gap-6">
-        <a href="/#about">About</a><a href="/#experience">Experience</a><a href="/#expertise">Expertise</a><a href="/#certificates">Certificates</a><a href="/#contact">Contact <span aria-hidden="true">↗</span></a>
+        <a href="/#about">About</a><a href="/#experience">Experience</a><a href="/#expertise">Expertise</a><a href="/#certificates">Certificates</a><a href="/#contact">Contact <Icon name="arrow-up-right" /></a>
       </nav>
     </header>
 
@@ -44,10 +45,10 @@ const expertise = [
             <p class="eyebrow mb-7 flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-lime" /> FULL-STACK WEB DEVELOPER · POZNAŃ, PL</p>
             <h1 id="hero-title" class="max-w-3xl text-5xl font-medium leading-[1.06] tracking-[-0.055em] sm:text-7xl lg:text-8xl">Code with care.<br /><span class="text-muted">Built to work.</span></h1>
             <p class="mt-8 max-w-xl text-lg leading-relaxed text-muted">I'm Bartosz Wiorek, a full-stack web developer based in Poznań. I build web applications with React, TypeScript and Node.js - from the interface to the API.</p>
-            <a class="primary-link mt-9" href="mailto:bartoszwiorek@gmail.com">Let's talk <span aria-hidden="true">↗</span></a>
+            <a class="primary-link mt-9" href="mailto:bartoszwiorek@gmail.com">Let's talk <Icon name="arrow-up-right" /></a>
           </div>
           <aside class="profile-panel" aria-label="Profile at a glance">
-            <div class="mb-12 flex items-start justify-between"><span class="eyebrow">A LITTLE CONTEXT</span><span class="text-lime" aria-hidden="true">✳</span></div>
+            <div class="mb-12 flex items-start justify-between"><span class="eyebrow">A LITTLE CONTEXT</span><Icon name="asterisk" class="text-lime" /></div>
             <p class="text-2xl font-medium tracking-tight">Bartosz<br />Wiorek<span class="text-lime">.</span></p>
             <p class="mt-2 text-sm text-muted">Full-stack Web Developer</p>
             <div class="mt-8 border-t border-white/10 pt-5 text-sm text-muted">Based in Poznań, Poland<br /><span class="mt-2 block text-foreground">From frontend to backend.</span></div>
@@ -111,18 +112,18 @@ const expertise = [
           <div>
             <h2 id="contact-title" class="section-title">Good work starts<br />with a conversation.</h2>
             <p class="body-copy mt-5">Building a web application, connecting services or improving an existing product? Let’s talk about what you have in mind.</p>
-            <a class="mt-8 inline-flex break-all text-xl font-medium text-lime sm:text-2xl" href="mailto:bartoszwiorek@gmail.com">bartoszwiorek@gmail.com <span class="ml-3" aria-hidden="true">↗</span></a>
-            <div class="mt-6"><a href="https://www.linkedin.com/in/bartoszwiorek" target="_blank" rel="noopener noreferrer" class="text-sm text-muted">Find me on LinkedIn<span class="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></div>
+            <a class="icon-link mt-8 min-w-0 text-xl font-medium text-lime sm:text-2xl" href="mailto:bartoszwiorek@gmail.com"><span class="min-w-0 break-all">bartoszwiorek@gmail.com</span> <Icon name="arrow-up-right" /></a>
+            <div class="mt-6"><a href="https://www.linkedin.com/in/bartoszwiorek" target="_blank" rel="noopener noreferrer" class="icon-link text-sm text-muted">Find me on LinkedIn<span class="sr-only"> (opens in a new tab)</span> <Icon name="arrow-up-right" /></a></div>
           </div>
         </section>
       </template>
-      <section v-else-if="page.isNotFound" class="py-24"><p class="eyebrow">404</p><h1 class="section-title mt-4">This page isn't here.</h1><a class="primary-link mt-8" href="/">Back home <span aria-hidden="true">↗</span></a></section>
+      <section v-else-if="page.isNotFound" class="py-24"><p class="eyebrow">404</p><h1 class="section-title mt-4">This page isn't here.</h1><a class="primary-link mt-8" href="/">Back home <Icon name="arrow-up-right" /></a></section>
       <article v-else class="prose-page mx-auto max-w-3xl py-20"><Content /></article>
     </main>
 
     <footer class="flex flex-wrap items-center justify-between gap-6 border-t border-white/10 py-7 text-xs text-muted">
       <p>Bartosz Wiorek <span class="px-2 text-lime">/</span> Built with care.</p>
-      <div class="flex gap-6"><a href="/privacy">Privacy</a><button v-if="cookiesEnabled" type="button" @click="openCookieSettings">Cookie settings</button><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div>
+      <div class="flex gap-6"><a href="/privacy">Privacy</a><button v-if="cookiesEnabled" type="button" @click="openCookieSettings">Cookie settings</button><a href="#main">Back to top <Icon name="arrow-up" /></a></div>
     </footer>
   </div>
 </template>
