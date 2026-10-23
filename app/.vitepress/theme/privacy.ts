@@ -43,7 +43,7 @@ export async function setupPrivacy(): Promise<{ enabled: boolean; cleanup?: () =
     if (loading) return
     loading = true
     const script = document.createElement('script')
-    script.src = `${config.ackeeServer}/tracker.js`
+    script.src = `${config.ackeeServer}/handler.js`
     script.async = true
     script.dataset.cookieconsent = 'statistics'
     script.onload = () => {

@@ -43,7 +43,7 @@ docker run --rm -p 3000:3000 --env-file .env bw-portfolio
 
 1. Add the deployed website domain to Cookiebot and copy its Domain Group ID to `COOKIEBOT_ID`. The banner is English. This integration uses manual blocking; the application explicitly gates analytics on statistics consent.
 2. Host Ackee separately, create a domain in its dashboard, and set `ACKEE_SERVER` (HTTPS, no trailing slash) and `ACKEE_DOMAIN_ID`. Allow the portfolio origin in the Ackee server's `ACKEE_ALLOW_ORIGIN` configuration.
-3. Ackee's `tracker.js` is downloaded from your instance only after Cookiebot statistics consent. Detailed tracking is disabled; page URLs omit query strings and fragments. Refusing or withdrawing statistics consent stops subsequent duration updates. Previously transmitted records remain on your Ackee server.
+3. Ackee's `handler.js` is downloaded from your instance only after Cookiebot statistics consent. Detailed tracking is disabled; page URLs omit query strings and fragments. Refusing or withdrawing statistics consent stops subsequent duration updates. Previously transmitted records remain on your Ackee server.
 4. Use **Cookie settings** in the footer to reopen the banner. Without a Cookiebot ID, all optional analytics stay disabled. Ackee ignores localhost visits, so verify actual analytics on your configured domain.
 
 Check both consent acceptance and withdrawal on your registered domain before publishing. Set retention in your Ackee instance and review the privacy page for your actual hosting and service setup.
