@@ -5,7 +5,7 @@ description: How wiorek.net handles consent, optional Ackee analytics and extern
 
 # Privacy, simply put.
 
-This is the personal website of Bartosz Wiorek. For questions about your privacy, contact [bartoszwiorek@gmail.com](mailto:bartoszwiorek@gmail.com).
+This is the personal website of Bartosz Wiorek. For questions about your privacy, contact [hello@wiorek.net](mailto:hello@wiorek.net).
 
 ## Your choice
 

@@ -45,7 +45,7 @@ const expertise = [
             <p class="eyebrow mb-7 flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-lime" /> FULL-STACK WEB DEVELOPER · POZNAŃ, PL</p>
             <h1 id="hero-title" class="max-w-3xl text-5xl font-medium leading-[1.06] tracking-[-0.055em] sm:text-7xl lg:text-8xl">Code with care.<br /><span class="text-muted">Built to work.</span></h1>
             <p class="mt-8 max-w-xl text-lg leading-relaxed text-muted">I'm Bartosz Wiorek, a full-stack web developer based in Poznań. I build web applications with React, TypeScript and Node.js - from the interface to the API.</p>
-            <a class="primary-link mt-9" href="mailto:bartoszwiorek@gmail.com">Let's talk <Icon name="arrow-up-right" /></a>
+            <a class="primary-link mt-9" href="mailto:hello@wiorek.net">Let's talk <Icon name="arrow-up-right" /></a>
           </div>
           <aside class="profile-panel" aria-label="Profile at a glance">
             <div class="mb-12 flex items-start justify-between"><span class="eyebrow">A LITTLE CONTEXT</span><Icon name="asterisk" class="text-lime" /></div>
@@ -112,7 +112,7 @@ const expertise = [
           <div>
             <h2 id="contact-title" class="section-title">Good work starts<br />with a conversation.</h2>
             <p class="body-copy mt-5">Building a web application, connecting services or improving an existing product? Let’s talk about what you have in mind.</p>
-            <a class="icon-link mt-8 min-w-0 text-xl font-medium text-lime sm:text-2xl" href="mailto:bartoszwiorek@gmail.com"><span class="min-w-0 break-all">bartoszwiorek@gmail.com</span> <Icon name="arrow-up-right" /></a>
+            <a class="icon-link mt-8 min-w-0 text-xl font-medium text-lime sm:text-2xl" href="mailto:hello@wiorek.net"><span class="min-w-0 break-all">hello@wiorek.net</span> <Icon name="arrow-up-right" /></a>
             <div class="mt-6"><a href="https://www.linkedin.com/in/bartoszwiorek" target="_blank" rel="noopener noreferrer" class="icon-link text-sm text-muted">Find me on LinkedIn<span class="sr-only"> (opens in a new tab)</span> <Icon name="arrow-up-right" /></a></div>
           </div>
         </section>
